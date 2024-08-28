@@ -1,0 +1,130 @@
+<mvc:View
+    controllerName="com.leavetrack.leavetrack.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <VBox
+                alignContent="Center"
+                justifyContent="Center"
+                width="100%"
+                height="100%"
+            >
+                <f:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="2"
+                    labelSpanL="2"
+                    labelSpanM="2"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="1"
+                    emptySpanL="1"
+                    emptySpanM="1"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                >
+                    <f:content>
+                        <core:Title
+                            text="Apply Leave"
+                            class="TitleCenter"
+                        />
+
+                        <Label
+                            text="{i18n>LeaveType}"
+                            class="sapMLabelNoText"
+                        />
+                        <ComboBox
+                            id="leaveTypeId"
+                            items=""
+                            editable="true"
+                            change="PlantChange"
+                        >
+                            <core:Item
+                                text="Select Leave Type"
+                                key=""
+                            />
+                            <core:Item
+                                text="Casual Leave"
+                                key="CL"
+                            />
+                            <core:Item
+                                text="Sick Leave"
+                                key="SL"
+                            />
+                            <core:Item
+                                text="Earned Leave"
+                                key="EL"
+                            />
+                            <core:Item
+                                text="Unpaid Leave"
+                                key="UPL"
+                            />
+                            <core:Item
+                                text="Half Leave"
+                                key="HL"
+                            />
+                            <core:Item
+                                text="Adjustment Leave"
+                                key="AL"
+                            />
+                        </ComboBox>
+                        <Label
+                            text="{i18n>FromDate}"
+                            class="sapMLabelNoText"
+                        />
+                        <DatePicker
+                            displayFormat="dd-MMM-yyyy"
+                            valueFormat="yyyy-MM-ddT00:00:00"
+                            id="fromDateId"
+                            editable="true"
+                        />
+                        <Label
+                            text="{i18n>ToDate}"
+                            class="sapMLabelNoText"
+                        />
+                        <DatePicker
+                            displayFormat="dd-MMM-yyyy"
+                            valueFormat="yyyy-MM-ddT00:00:00"
+                            id="toDateId"
+                            editable="true"
+                        />
+                        <Label
+                            text="{i18n>Reason}"
+                            class="sapMLabelNoText"
+                        />
+                        <Input
+                            id="reasonId"
+                            value=""
+                            editable="true"
+                        />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="Apply Leave"
+                    class="sapUiSmallMarginBottom"
+                    press="onLeaveApply"
+                    
+                    width="280px"
+                    ariaHasPopup="Dialog"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
